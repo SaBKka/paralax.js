@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="paralax">
+    <h1>paralax</h1>
+  </div>
+<script>
+  (function(){
+    document.addEventListener("mousemove" , paralax);
+    const elem = document.querySelector("#paralax");
+
+    function paralax(e){
+      let w = window.innerWidth / 2;
+      let h = window.innerHeight /2;
+
+      let mouseX =  e.clientX;
+      let mouseY = e.clientY;
+
+      let deph1 = `${50 - (mouseX - w)*0.01}% ${50 - (mouseY - h)*0.01}%`;
+      let deph2 = `${50 - (mouseX - w)*0.02}% ${50 - (mouseY - h)*0.02}%`;
+      let deph3 = `${50 - (mouseX - w)*0.06}% ${50 - (mouseY - h)*0.06}%`;
+
+      let x = `${deph3} , ${deph2} , ${deph1}`
+
+      console.log(x)
+      
+      elem.style.backgroundPosition = x;
+    }
+  }) ();
+</script>
+</body>
+</html>
